@@ -1,0 +1,19 @@
+import { OptionType } from "../../utils/types";
+export declare const settings: import("../../utils/types").DefinedSettings<{
+    changeDecoration: {
+        type: OptionType.COMPONENT;
+        component({ closePluginSettings }: import("../../utils/types").PluginSettingComponentProps): import("react").JSX.Element;
+    };
+    baseUrl: {
+        type: OptionType.STRING;
+        hidden: true;
+        description: string;
+        default: string;
+    };
+    agreedToGuidelines: {
+        type: OptionType.BOOLEAN;
+        description: string;
+        hidden: true;
+        default: false;
+    };
+}, {}>;

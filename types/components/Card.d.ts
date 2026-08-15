@@ -1,0 +1,9 @@
+import "./Card.css";
+import { ComponentPropsWithRef } from "react";
+export interface CardProps extends ComponentPropsWithRef<"div"> {
+    variant?: "primary" | "warning" | "danger" | "success" | "brand";
+    outline?: boolean;
+    /** Add a default padding of 1em to the card. This is implied if no className prop is passed */
+    defaultPadding?: boolean;
+}
+export declare function Card({ variant, outline, defaultPadding, children, className, ...restProps }: CardProps): import("react").JSX.Element;

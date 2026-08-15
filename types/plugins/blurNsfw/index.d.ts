@@ -1,0 +1,35 @@
+import { OptionType } from "../../utils/types";
+declare function setCss(): void;
+declare const _default: {
+    name: string;
+    description: string;
+    tags: ("Appearance" | "Privacy")[];
+    authors: {
+        name: string;
+        id: bigint;
+    }[];
+    isModified: true;
+    settings: import("../../utils/types").DefinedSettings<{
+        blurAmount: {
+            type: OptionType.NUMBER;
+            description: string;
+            default: number;
+            onChange: typeof setCss;
+        };
+        blurAllChannels: {
+            type: OptionType.BOOLEAN;
+            description: string;
+            default: false;
+        };
+    }, {}>;
+    patches: {
+        find: string;
+        replacement: {
+            match: RegExp;
+            replace: string;
+        }[];
+    }[];
+    start(): void;
+    stop(): void;
+} & Record<PropertyKey, any> & import("../../utils/types").Plugin;
+export default _default;

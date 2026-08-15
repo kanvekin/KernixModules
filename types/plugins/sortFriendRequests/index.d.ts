@@ -1,0 +1,50 @@
+import "./styles.css";
+import { OptionType } from "../../utils/types";
+import { User } from "@vencord/discord-types";
+import { PropsWithChildren } from "react";
+declare const _default: {
+    name: string;
+    authors: {
+        name: string;
+        id: bigint;
+    }[];
+    description: string;
+    tags: ("Friends" | "Organisation")[];
+    isModified: true;
+    settings: import("../../utils/types").DefinedSettings<{
+        showDates: {
+            type: OptionType.BOOLEAN;
+            description: string;
+            default: false;
+            restartNeeded: true;
+        };
+    }, {}>;
+    patches: ({
+        find: string;
+        replacement: {
+            match: RegExp;
+            replace: string;
+            predicate?: undefined;
+        };
+    } | {
+        find: string;
+        replacement: {
+            predicate: () => boolean;
+            match: RegExp;
+            replace: string;
+        };
+    } | {
+        find: string;
+        replacement: {
+            predicate: () => boolean;
+            match: RegExp;
+            replace: (children: string, user: string) => string;
+        };
+    })[];
+    wrapSort(comparator: Function, row: any): any;
+    makeSubtext(user: User, origSubtext: any): import("react").JSX.Element | null;
+    WrapperDateComponent: import("react").FunctionComponent<PropsWithChildren<{
+        user: User;
+    }>>;
+} & Record<PropertyKey, any> & import("../../utils/types").Plugin;
+export default _default;

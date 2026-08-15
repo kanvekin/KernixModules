@@ -1,0 +1,75 @@
+import { OptionType } from "../../utils/types";
+import { Channel, User } from "@vencord/discord-types";
+import { PropsWithChildren } from "react";
+export declare const buildSeveralUsers: import("react").FunctionComponent<{
+    users: User[];
+    count: number;
+    guildId: string;
+}>;
+declare const _default: {
+    name: string;
+    description: string;
+    tags: ("Appearance" | "Customisation")[];
+    authors: {
+        name: string;
+        id: bigint;
+    }[];
+    settings: import("../../utils/types").DefinedSettings<{
+        showAvatars: {
+            type: OptionType.BOOLEAN;
+            default: true;
+            description: string;
+        };
+        showRoleColors: {
+            type: OptionType.BOOLEAN;
+            default: true;
+            description: string;
+        };
+        alternativeFormatting: {
+            type: OptionType.BOOLEAN;
+            default: true;
+            description: string;
+        };
+        amITyping: {
+            type: OptionType.BOOLEAN;
+            default: false;
+            restartNeeded: true;
+            description: string;
+        };
+    }, {}>;
+    isModified: true;
+    managedStyle: string;
+    patches: ({
+        find: string;
+        group: true;
+        replacement: ({
+            match: RegExp;
+            replace: string;
+            predicate?: undefined;
+        } | {
+            match: RegExp;
+            replace: string;
+            predicate: () => boolean;
+        })[];
+        predicate?: undefined;
+    } | {
+        find: string;
+        predicate: () => boolean;
+        replacement: {
+            match: RegExp;
+            replace: string;
+        };
+        group?: undefined;
+    })[];
+    useTypingUsers(channel: Channel | undefined): User[];
+    buildSeveralUsers: import("react").FunctionComponent<{
+        users: User[];
+        count: number;
+        guildId: string;
+    }>;
+    renderTypingUsers: import("react").FunctionComponent<PropsWithChildren<{
+        guildId: string;
+        users: User[];
+    }>>;
+} & Record<PropertyKey, any> & import("../../utils/types").Plugin;
+export default _default;

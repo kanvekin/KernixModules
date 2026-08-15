@@ -1,0 +1,36 @@
+import { OptionType } from "../../utils/types";
+import { CustomEmoji, Message } from "@vencord/discord-types";
+interface ReactionProps {
+    message: Message;
+    emoji: CustomEmoji;
+    type: number;
+}
+declare const _default: {
+    name: string;
+    description: string;
+    tags: ("Appearance" | "Chat" | "Reactions")[];
+    authors: {
+        name: string;
+        id: bigint;
+    }[];
+    isModified: true;
+    settings: import("../../utils/types").DefinedSettings<{
+        avatarClick: {
+            description: string;
+            type: OptionType.BOOLEAN;
+            default: false;
+            restartNeeded: true;
+        };
+    }, {}>;
+    patches: {
+        find: string;
+        replacement: {
+            match: RegExp;
+            replace: string;
+        };
+    }[];
+    renderUsers: import("react").FunctionComponent<ReactionProps>;
+    setScrollObj(scroll: any): void;
+    reactions: any;
+} & Record<PropertyKey, any> & import("../../utils/types").Plugin;
+export default _default;

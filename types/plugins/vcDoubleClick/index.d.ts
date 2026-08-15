@@ -1,0 +1,36 @@
+declare const _default: {
+    name: string;
+    description: string;
+    tags: "Voice"[];
+    authors: {
+        name: string;
+        id: bigint;
+    }[];
+    patches: ({
+        find: string;
+        replacement: {
+            match: RegExp;
+            replace: string;
+        }[];
+    } | {
+        find: string;
+        replacement: {
+            match: RegExp;
+            replace: (_: string, onClick: string, props: string) => string;
+        };
+    } | {
+        find: string;
+        replacement: {
+            match: RegExp;
+            replace: string;
+        };
+    })[];
+    goToChannel(props: {
+        id?: string;
+    } | undefined): void;
+    shouldRunOnClick(e: MouseEvent, { channelId }: {
+        channelId: any;
+    }): boolean;
+    schedule(cb: () => void, e: any): void;
+} & Record<PropertyKey, any> & import("../../utils/types").Plugin;
+export default _default;

@@ -1,0 +1,58 @@
+import type { Channel, CloudUpload, CustomEmoji, Message } from "@vencord/discord-types";
+import type { Promisable } from "type-fest";
+export interface MessageObject {
+    content: string;
+    validNonShortcutEmojis: CustomEmoji[];
+    invalidEmojis: any[];
+    tts: boolean;
+}
+export interface MessageContentOptions {
+    content: string;
+    channelId: string;
+    command: unknown | null;
+    isGif?: boolean;
+    stickers?: string[];
+    uploads?: CloudUpload[];
+    alsoForwardToChannelId?: string;
+    scheduledTimestamp?: unknown;
+    mediaMention?: unknown;
+}
+export interface SendMessageOptions extends MessageContentOptions {
+    messageReference?: Message["messageReference"];
+    allowedMentions?: {
+        parse: string[];
+        repliedUser: boolean;
+    };
+    location: string;
+    stickerIds?: string[];
+}
+export interface SendMessageProps {
+    hasStickers: boolean;
+    hasAttachments: boolean;
+    content: string;
+    channel: Channel;
+    type?: any;
+    openWarningPopout: (props: any) => any;
+}
+export type MessageSendListener = (channelId: string, messageObj: MessageObject, options: SendMessageOptions, props: SendMessageProps) => Promisable<void | {
+    cancel: boolean;
+}>;
+export type MessageEditListener = (channelId: string, messageId: string, messageObj: MessageObject) => Promisable<void | {
+    cancel: boolean;
+}>;
+export declare function _handlePreSend(channelId: string, messageObj: MessageObject, options: SendMessageOptions, props: SendMessageProps, contentOptions: MessageContentOptions): Promise<boolean>;
+export declare function _handlePreEdit(channelId: string, messageId: string, messageObj: MessageObject): Promise<boolean>;
+/**
+ * Note: This event fires off before a message is sent, allowing you to edit the message.
+ */
+export declare function addMessagePreSendListener(listener: MessageSendListener): MessageSendListener;
+/**
+ * Note: This event fires off before a message's edit is applied, allowing you to further edit the message.
+ */
+export declare function addMessagePreEditListener(listener: MessageEditListener): MessageEditListener;
+export declare function removeMessagePreSendListener(listener: MessageSendListener): boolean;
+export declare function removeMessagePreEditListener(listener: MessageEditListener): boolean;
+export type MessageClickListener = (message: Message, channel: Channel, event: MouseEvent) => void;
+export declare function _handleClick(message: Message, channel: Channel, event: MouseEvent): void;
+export declare function addMessageClickListener(listener: MessageClickListener): MessageClickListener;
+export declare function removeMessageClickListener(listener: MessageClickListener): boolean;
