@@ -3,7 +3,7 @@
     "author": "Kernixcord & Equicord & Vencord Contributors",
     "private": false,
     "description": "Typescript definitions for the webpack modules of the Discord Web app",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "license": "LGPL-3.0-or-later",
     "types": "src/index.d.ts",
     "type": "module",
@@ -17,6 +17,6 @@
         "type-fest": "^5.7.0"
     },
     "peerDependencies": {
-        "@types/react": "19.1.0"
+    "@types/react": "^19.0.0"
     }
 }
