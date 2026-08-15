@@ -1,7 +1,7 @@
 {
     "name": "@kernixcord/types",
     "private": false,
-    "version": "1.14.15",
+    "version": "1.14.16",
     "description": "",
     "types": "index.d.ts",
     "scripts": {
